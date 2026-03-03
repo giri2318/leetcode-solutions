@@ -1,17 +1,20 @@
-// Last updated: 3/3/2026, 1:48:57 PM
-1int findMaxConsecutiveOnes(int* nums, int numsSize) {
-2    int max = 0;
-3    int c = 0;
-4    for(int i = 0; i < numsSize; i++){
-5        if(nums[i]!=0){
-6            c++;
-7        }
-8        else{
-9            c = 0;
-10        }
-11        if(max < c){
-12            max = c;
+// Last updated: 3/3/2026, 1:56:36 PM
+1int strStr(char* haystack, char* needle) {
+2    int n = strlen(haystack);
+3    int m = strlen(needle);
+4
+5    if (m == 0) return 0;  
+6
+7    for (int i = 0; i <= n - m; i++) {
+8        int j;
+9        for (j = 0; j < m; j++) {
+10            if (haystack[i + j] != needle[j]) {
+11                break;
+12            }
 13        }
-14    }
-15    return max;
-16}
+14        if (j == m) {
+15            return i; 
+16    }
+17}
+18return -1;
+19}
