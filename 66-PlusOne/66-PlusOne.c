@@ -1,19 +1,15 @@
-// Last updated: 4/16/2026, 6:59:28 PM
-1/**
-2 * Note: The returned array must be malloced, assume caller calls free().
-3 */
-4int* plusOne(int* digits, int digitsSize, int* returnSize) {
-5
-6    for (int i = digitsSize - 1; i >= 0; i--) {
-7        if (digits[i] < 9) {
-8            digits[i]++;
-9            *returnSize = digitsSize;
-10            return digits;
-11        }
-12        digits[i] = 0; 
-13    }
-14    int* result = (int*)calloc(digitsSize + 1, sizeof(int));
-15    result[0] = 1;
-16    *returnSize = digitsSize + 1;
-17    return result;
-18}
+// Last updated: 4/16/2026, 7:00:54 PM
+1int missingNumber(int* nums, int numsSize) {
+2    int xor_all = 0;
+3    int xor_nums = 0;
+4    
+5    for (int i = 0; i <= numsSize; i++) {
+6        xor_all ^= i;
+7    }
+8    
+9    for (int i = 0; i < numsSize; i++) {
+10        xor_nums ^= nums[i];
+11    }
+12    
+13    return xor_all ^ xor_nums;
+14}
